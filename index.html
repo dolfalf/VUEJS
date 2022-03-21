@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .warning1 {
+            background-color: red;
+        }
+        .warning2 {
+            background-color: blue;
+        }
+        .border_yellow {
+            border: double 10px yellow;
+        }
+        .border_pink {
+            border: double 10px pink;
+        }
+    </style>
+</head>
+<body>
+    <div id= "app">
+        <!-- <a v-bind:href="url">未成年はこちら!</a> -->
+
+        <!-- <div>
+            {{ counter }}
+        </div> 
+        <div>
+            <button v-on:click="increment()">1を足す</button>
+        </div> -->
+
+        <!-- <ul>
+            <li v-for="(person, index) in persons">
+                 {{ index + 1 }}. {{ person.name }} ({{ person.age }}歳)
+            </li>
+        </ul> -->
+
+        <!-- <div>
+            <img :src='imagePath' :width="imageWidth">
+        </div>
+        <div>
+            <button @click="clickJinroButton">チャミスル</button>
+            <button @click="clickBohaeButton">ジョウンデー</button>
+        </div> -->
+
+        <!-- <div :class="[warningClass, borderClass]">これは警告です。　</div>
+        <div>
+            <button @click="clickSwitchWarningButton">切り替える</button>
+        </div> -->
+        <!-- <div>
+            <input v-if="isFormDisplay" type = "text" placeholder="ユーザー名"/>
+            <input v-else type = "text" placeholder="パスワード"/>
+        </div>
+        <div>
+            <button @click="clickSwitchDisplayForm">入力表示切り替え</button>
+        </div> -->
+        <div>
+            <!-- <input type="radio" v-model="user" />
+            <p>{{ user }}</p> -->
+            <!-- <input type="checkbox" v-model="agree" value ="A" />
+            <input type="checkbox" v-model="agree"  value ="B" />
+            <input type="checkbox" v-model="agree"  value ="C" />
+            <input type="checkbox" v-model="agree"  value ="D" /> -->
+
+            <!-- <input type="radio" v-model="agree1" value ="A" />
+            <input type="radio" v-model="agree1"  value ="B" />
+            <input type="radio" v-model="agree1"  value ="C" />
+            <input type="radio" v-model="agree1"  value ="D" /> 
+            <p>{{ agree1 }} </p> -->
+
+            <!-- <select v-model="selected">
+                <option v-for="friend in friends" :value="friend.id"> 
+                    {{ friend.name }}
+                </option>
+            </select>
+            <p>{{ selected }}</p> -->
+        </div>
+        
+        <div>
+            <!-- <paragraph message="hello"></paragraph>
+            <paragraph message="mario"></paragraph> -->
+            <paragraph>hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge hoge</paragraph>
+        </div>
+
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+        Vue.component('paragraph', {
+            // props: ['message'],
+            // template: '<p>{{ message }}</p>'
+            template: '<p><slot></slot></p>'
+        }),
+        // Vue.component('paragraph', {
+        //     // data: function() {
+        //     //     return {
+        //     //         message: 'Hello'
+        //     //     }
+        //     // },
+        //     // template: '<p>{{ message }}</p>'
+        //     data: function() {
+        //         return {
+        //             counter: 0
+        //         }
+        //     },
+        //     template: '<p><button @click="counter++">{{ counter }}</button></p>'
+        // }),
+
+        new Vue({
+            el: '#app',
+            methods: {
+                clickSwitchDisplayForm: function() {
+                    this.isFormDisplay = !this.isFormDisplay
+                },
+                clickSwitchWarningButton: function() {
+                    this.styleObject.warning = !this.this.styleObject.warning
+                },
+                clickJinroButton: function() {
+                    this.imagePath = "https://cdn.clien.net/web/api/file/F01/11622895/54dbf2e5776e06.png"
+                },
+                clickBohaeButton: function() {
+                    this.imagePath = "http://file2.instiz.net/data/file2/2016/05/24/b/1/9/b1933c3f1112fd573b3bcd1272e70b04.jpg"
+                },
+                increment: function() {
+                    this.counter++;
+                    console.log(this.counter)
+                    // alert('increment!');
+                }
+            },
+            data: {
+                selected: null,
+                friends: [
+                    { id: 1, name: "金" },
+                    { id: 2, name: "李" },
+                    { id: 3, name: "朴" },
+                    { id: 4, name: "車" },
+                    { id: 5, name: "クォン" }
+                ],
+                agree: [],
+                agree1: "",
+                user: 'aaaa',
+                isFormDisplay: true,
+                warningClass : "warning2",
+                borderClass : "border_pink",
+                styleObject: {
+                    warning: false
+                },
+                imagePath: "",
+                imageWidth: 200,
+                url: "https://yahoo.co.jp",
+                counter: 0,
+                message: "Hello VueJS!!",
+                persons: [
+                    {
+                        name: "李",
+                        age: 47,
+                        address: {
+                            country: "日本",
+                            city: "東京都"
+                        }
+                    },
+                    {
+                        name: "角田",
+                        age: 55,
+                        address: {
+                            country: "日本",
+                            city: "東京都"
+                        }
+                    },
+                    {
+                        name: "ジュンホ",
+                        age: 46,
+                        address: {
+                            country: "日本",
+                            city: "東京都"
+                        }
+                    }]
+                }
+            })    
+    </script>
+</body>
+</html>

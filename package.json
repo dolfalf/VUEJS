@@ -1,0 +1,14 @@
+{
+  "name": "VUEJS",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/dolfalf/VUEJS.git",
+  "author": "leejaeeun <leejaeeun@archive-asia.co.jp>",
+  "license": "MIT",
+  "dependencies": {
+    "vue": "^3.2.31"
+  },
+  "devDependencies": {
+    "@vue/compiler-sfc": "^3.2.31"
+  }
+}
